@@ -9,7 +9,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [cards, setCards] = useState();
+  const [cards, setCards] = useState([]);
 
   const fetchApi = async () => {
     const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections");
@@ -35,10 +35,3 @@ function App() {
 
 export default App;
 
-/*const [sliderRef] = useKeenSlider({
-  loop: true,
-  slides: {
-    perView: 4,
-    spacing: 16,
-  }
-}); */
