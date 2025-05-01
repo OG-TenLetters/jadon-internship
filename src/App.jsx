@@ -5,13 +5,25 @@ import Author from "./pages/Author";
 import ItemDetails from "./pages/ItemDetails";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [cards, setCards] = useState();
+
+  const fetchApi = async () => {
+    const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections");
+    const apiData = data;
+    setCards(apiData);
+  };
+  useEffect(() => {
+    fetchApi();
+  }, [])
   return (
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home cards={cards} />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/author" element={<Author />} />
         <Route path="/item-details" element={<ItemDetails />} />
@@ -22,3 +34,11 @@ function App() {
 }
 
 export default App;
+
+/*const [sliderRef] = useKeenSlider({
+  loop: true,
+  slides: {
+    perView: 4,
+    spacing: 16,
+  }
+}); */
