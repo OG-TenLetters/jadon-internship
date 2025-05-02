@@ -56,6 +56,8 @@ const HotCollections = ({ hotCollectionsCards, isLoading }) => {
     }
   };
 
+
+const HotCollections = () => {
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
@@ -66,55 +68,30 @@ const HotCollections = ({ hotCollectionsCards, isLoading }) => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="navigation__wrapper">
-            <button onClick={handlePrev} className="keen__nav--left">
-              {"<"}
-            </button>
-            <button onClick={handleNext} className="keen__nav--right">
-              {">"}
-            </button>
-            {isMounted && (
-              <div ref={sliderRef} className="keen-slider">
-                {isLoading ? (
-                  Array.from({ length: 5 }).map((_, index) => (
-                    <HotCollectionsSkeleton key={index} />
-                  ))
-                ) : hotCollectionsCards && hotCollectionsCards.length > 0 ? (
-                  hotCollectionsCards.map((card) => (
-                    <div className="keen-slider__slide" key={card.id}>
-                      <div className="nft_coll">
-                        <div className="nft_wrap">
-                          <Link to="/item-details">
-                            <img
-                              src={card.nftImage}
-                              className="lazy img-fluid"
-                              alt=""
-                            />
-                          </Link>
-                        </div>
-                        <div className="nft_coll_pp">
-                          <Link to="/author">
-                            <img
-                              className="lazy pp-coll"
-                              src={card.authorImage}
-                              alt=""
-                            />
-                          </Link>
-                          <i className="fa fa-check"></i>
-                        </div>
-                        <div className="nft_coll_info">
-                          <Link to="/explore">
-                            <h4>{card.title}</h4>
-                          </Link>
-                          <span>ERC-{card.code}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))
-                ) : null}
+
+          {new Array(4).fill(0).map((_, index) => (
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+              <div className="nft_coll">
+                <div className="nft_wrap">
+                  <Link to="/item-details">
+                    <img src={nftImage} className="lazy img-fluid" alt="" />
+                  </Link>
+                </div>
+                <div className="nft_coll_pp">
+                  <Link to="/author">
+                    <img className="lazy pp-coll" src={AuthorImage} alt="" />
+                  </Link>
+                  <i className="fa fa-check"></i>
+                </div>
+                <div className="nft_coll_info">
+                  <Link to="/explore">
+                    <h4>Pinky Ocean</h4>
+                  </Link>
+                  <span>ERC-192</span>
+                </div>
               </div>
-            )}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
