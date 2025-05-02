@@ -83,12 +83,6 @@ button {
   border-radius: 50%;
 }
 
-/* .nft_coll_info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
 .skeleton-text {
     background-color: #ddd;
     display: inline-block;
