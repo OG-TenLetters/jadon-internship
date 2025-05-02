@@ -112,7 +112,6 @@ const HotCollections = ({ cards, isLoading }) => {
                     </div>
                   ))
                 ) : null}
-                <HotCollectionsSkeleton/>
               </div>
             )}
           </div>
