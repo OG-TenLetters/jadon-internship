@@ -7,26 +7,28 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import NewItems from "./components/home/NewItems";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false)
-  const [cards, setCards] = useState([]);
+  const [hotCollectionsCards, setHotCollectionsCards] = useState([]);
 
-  const fetchApi = async () => {
+  const fetchHotCollectionsData = async () => {
     setIsLoading(true)
     const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections");
     const apiData = data;
-    setCards(apiData);
+    setHotCollectionsCards(apiData);
     setIsLoading(false)
   };
+
   useEffect(() => {
-    fetchApi();
+    fetchHotCollectionsData();
   }, [])
   return (
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home cards={cards} isLoading={isLoading} />} />
+        <Route path="/" element={<Home hotCollectionsCards={hotCollectionsCards} isLoading={isLoading} />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/author" element={<Author />} />
         <Route path="/item-details" element={<ItemDetails />} />

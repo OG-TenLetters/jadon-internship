@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import HotCollectionsSkeleton from "./ui/HotCollectionsSkeleton";
 
-const HotCollections = ({ cards, isLoading }) => {
+const HotCollections = ({ hotCollectionsCards, isLoading }) => {
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
 
@@ -42,7 +42,7 @@ const HotCollections = ({ cards, isLoading }) => {
     if (instanceRef.current) {
       instanceRef.current.update();
     }
-  }, [instanceRef, cards, isLoading]);
+  }, [instanceRef, hotCollectionsCards, isLoading]);
 
   const handleNext = () => {
     if (instanceRef.current) {
@@ -79,8 +79,8 @@ const HotCollections = ({ cards, isLoading }) => {
                   Array.from({ length: 5 }).map((_, index) => (
                     <HotCollectionsSkeleton key={index} />
                   ))
-                ) : cards && cards.length > 0 ? (
-                  cards.map((card) => (
+                ) : hotCollectionsCards && hotCollectionsCards.length > 0 ? (
+                  hotCollectionsCards.map((card) => (
                     <div className="keen-slider__slide" key={card.id}>
                       <div className="nft_coll">
                         <div className="nft_wrap">
