@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 
-const HotCollections = ({cards}) => {
-  console.log(cards)
+const HotCollections = () => {
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
@@ -15,10 +14,8 @@ const HotCollections = ({cards}) => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {
-            (cards.length > 0) ? cards.map((card) => {
-              
-                 <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={card.id}>
+          {new Array(4).fill(0).map((_, index) => (
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
               <div className="nft_coll">
                 <div className="nft_wrap">
                   <Link to="/item-details">
@@ -39,9 +36,7 @@ const HotCollections = ({cards}) => {
                 </div>
               </div>
             </div>
-        
-            }) : null
-          }
+          ))}
         </div>
       </div>
     </section>
