@@ -1,48 +1,60 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import { useKeenSlider } from "keen-slider/react";
+import HotCollectionsSkeleton from "./ui/HotCollectionsSkeleton";
 
-
-const HotCollections = ({ cards }) => {
+const HotCollections = ({ cards, isLoading }) => {
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
-    slides: {
-      // origin: -0.0095,
-      perView: 4,
-      spacing: 16,
-    },
+
     breakpoints: {
-      '(max-width: 1200px)': {
-        perView: 3,
-        spacing: 1,
-      }
+      "(min-width: 1200px)": {
+        slides: {
+          perView: 4,
+          spacing: 16,
+        },
+      },
+      "(min-width: 1024px) and (max-width: 1199px)": {
+        slides: {
+          perView: 3,
+          spacing: 16,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1023px)": {
+        slides: {
+          perView: 3,
+          spacing: 16,
+        },
+      },
+      "(min-width: 580px) and (max-width: 768px)": {
+        slides: {
+          perView: 2,
+          spacing: 12,
+        },
+      },
     },
+    slides: { perView: 1 },
   });
   const [isMounted, setIsMounted] = useState(false);
-
-
-
 
   useEffect(() => {
     setIsMounted(true);
     if (instanceRef.current) {
       instanceRef.current.update();
     }
-  }, [instanceRef, cards]);
+  }, [instanceRef, cards, isLoading]);
 
   const handleNext = () => {
     if (instanceRef.current) {
       instanceRef.current.next();
     }
-  }
+  };
 
   const handlePrev = () => {
     if (instanceRef.current) {
       instanceRef.current.prev();
     }
-  }
+  };
 
   return (
     <section id="section-collections" className="no-bottom">
@@ -55,12 +67,20 @@ const HotCollections = ({ cards }) => {
             </div>
           </div>
           <div className="navigation__wrapper">
-            <button onClick={handlePrev} className="keen__nav--left">{'<'}</button>
-            <button onClick={handleNext} className="keen__nav--right">{'>'}</button>
-          {isMounted && (
-            <div ref={sliderRef} className="keen-slider">
-              {cards && cards.length > 0
-                ? cards.map((card) => (
+            <button onClick={handlePrev} className="keen__nav--left">
+              {"<"}
+            </button>
+            <button onClick={handleNext} className="keen__nav--right">
+              {">"}
+            </button>
+            {isMounted && (
+              <div ref={sliderRef} className="keen-slider">
+                {isLoading ? (
+                  Array.from({ length: 5 }).map((_, index) => (
+                    <HotCollectionsSkeleton key={index} />
+                  ))
+                ) : cards && cards.length > 0 ? (
+                  cards.map((card) => (
                     <div className="keen-slider__slide" key={card.id}>
                       <div className="nft_coll">
                         <div className="nft_wrap">
@@ -91,9 +111,10 @@ const HotCollections = ({ cards }) => {
                       </div>
                     </div>
                   ))
-                : null}
-            </div>
-          )}
+                ) : null}
+                <HotCollectionsSkeleton/>
+              </div>
+            )}
           </div>
         </div>
       </div>

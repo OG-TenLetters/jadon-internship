@@ -9,12 +9,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false)
   const [cards, setCards] = useState([]);
 
   const fetchApi = async () => {
+    setIsLoading(true)
     const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections");
     const apiData = data;
     setCards(apiData);
+    setIsLoading(false)
   };
   useEffect(() => {
     fetchApi();
@@ -23,7 +26,7 @@ function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home cards={cards} />} />
+        <Route path="/" element={<Home cards={cards} isLoading={isLoading} />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/author" element={<Author />} />
         <Route path="/item-details" element={<ItemDetails />} />
