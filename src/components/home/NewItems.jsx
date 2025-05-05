@@ -19,7 +19,7 @@ const NewItems = ({ newItemsCards, isLoading }) => {
           </div>
 
           {
-            isLoading ? (<NewItemsSkeleton/>) : (
+            isLoading ? (Array.from({length: 4}).map((_, index) => <NewItemsSkeleton key={index}/>)) : (
           newItemsCards.length > 0
           ? newItemsCards.map((card) => (
               <div
