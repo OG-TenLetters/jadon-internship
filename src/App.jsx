@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [hotCollectionsCards, setHotCollectionsCards] = useState([]);
+  const [newItemsCards, setNewItemsCards] = useState([]);
 
   const fetchHotCollectionsData = async () => {
     setIsLoading(true);
@@ -21,6 +22,20 @@ function App() {
     setHotCollectionsCards(apiData);
     setIsLoading(false);
   };
+
+  const fetchNewItemsData = async () => {
+    setIsLoading(true);
+    const { data } = await axios.get(
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`
+    );
+    const NewItemsData = data;
+    setNewItemsCards(NewItemsData);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchNewItemsData();
+  }, []);
 
   useEffect(() => {
     fetchHotCollectionsData();
@@ -33,8 +48,9 @@ function App() {
           path="/"
           element={
             <Home
+            isLoading={isLoading}
               hotCollectionsCards={hotCollectionsCards}
-              isLoading={isLoading}
+              newItemsCards={newItemsCards}
             />
           }
         />
