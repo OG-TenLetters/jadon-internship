@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
+import CountDown from "./ui/CountDown";
+
 
 const NewItems = ({ newItemsCards }) => {
+
+
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -33,7 +37,7 @@ const NewItems = ({ newItemsCards }) => {
                         <i className="fa fa-check"></i>
                       </Link>
                     </div>
-                    <div className="de_countdown">5h 30m 32s</div>
+                    <div className="de_countdown"><CountDown expiryDate={card.expiryDate} /></div>
 
                     <div className="nft__item_wrap">
                       <div className="nft__item_extra">
