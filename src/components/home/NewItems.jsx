@@ -4,7 +4,6 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 
 const NewItems = ({ newItemsCards }) => {
-  console.log(newItemsCards);
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -55,7 +54,7 @@ const NewItems = ({ newItemsCards }) => {
                         </div>
                       </div>
 
-                      <Link to="/item-details">
+                      <Link to={`/item-details/${card.authorId}`}>
                         <img
                           src={card.nftImage}
                           className="lazy nft__item_preview"
@@ -64,7 +63,7 @@ const NewItems = ({ newItemsCards }) => {
                       </Link>
                     </div>
                     <div className="nft__item_info">
-                      <Link to="/item-details">
+                      <Link to={`/item-details/${card.authorId}`}>
                         <h4>{card.title}</h4>
                       </Link>
                       <div className="nft__item_price">{card.price}{" "}ETH</div>
