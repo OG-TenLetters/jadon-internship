@@ -5,17 +5,17 @@ const minute = hour / 60;
 const second = minute / 60;
 
 const CountDown = ({ expiryDate }) => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(calcTimeLeft());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calcTimeLeft());
     }, 1000);
 
     return () => clearInterval(intervalId);
   }, [expiryDate]);
 
-  function calculateTimeLeft() {
+  function calcTimeLeft() {
     const now = Date.now();
     const difference = expiryDate - now;
 

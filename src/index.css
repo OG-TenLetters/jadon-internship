@@ -54,8 +54,8 @@ button {
     right: -8px;
   }
   
+  .img-fluid-skeleton-square,
   .img-fluid-skeleton {
-    aspect-ratio: 219.33/123.55;
     width: 100%;
     background-color: #ddd;
     background-image: linear-gradient(
@@ -63,9 +63,21 @@ button {
       #cfcfcf 0px,
       #c0c0c0 50%,
       #cfcfcf 100%
-    );
-    background-size: 200% 100%;
-    animation: pulse 1.5s infinite linear;
+      );
+      background-size: 200% 100%;
+      animation: pulse 1.5s infinite linear;
+    }
+    .img-fluid-skeleton {
+    aspect-ratio: 219.33/123.55;
+  }
+  .img-fluid-skeleton-square {
+    aspect-ratio: 1/1;
+  }
+
+  .skeleton__img--wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
   }
   .pp-coll-skeleton {
     aspect-ratio: 1/1;
