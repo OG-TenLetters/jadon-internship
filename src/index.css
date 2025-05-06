@@ -54,6 +54,10 @@ button {
     right: -8px;
   }
   
+  .pp-coll-skeleton2 {
+    aspect-ratio: 1/1;
+  }
+
   .img-fluid-skeleton-square,
   .img-fluid-skeleton {
     width: 100%;
@@ -62,8 +66,8 @@ button {
       90deg,
       #cfcfcf 0px,
       #c0c0c0 50%,
-      #cfcfcf 100%
-      );
+      #cfcfcf 100%,
+      border-radius: 50%;
       background-size: 200% 100%;
       animation: pulse 1.5s infinite linear;
     }
@@ -73,7 +77,6 @@ button {
   .img-fluid-skeleton-square {
     aspect-ratio: 1/1;
   }
-
   .skeleton__img--wrapper {
     width: 100%;
     border-radius: 20px;
@@ -91,9 +94,16 @@ button {
       #cfcfcf 100%
     );
     background-size: 200% 100%;
+    color: transparent;
     animation: pulse 1.5s infinite linear;
-    border-radius: 50%;
-  }
+    border-radius: 12px;
+}
+.author_list_info-skeleton {
+    font-weight: bold;
+    padding-left: 70px;
+    display: inline-block;
+    flex-direction: column;
+}
   
   .skeleton-text {
       background-color: #ddd;
@@ -127,4 +137,4 @@ button {
     100% {
       background-position: -200% 0;
     }
-  }
+}
