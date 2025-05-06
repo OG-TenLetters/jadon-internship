@@ -71,7 +71,7 @@ function App() {
             />
           }
         />
-        <Route path="/explore" element={<Explore />} />
+        <Route path="/explore" element={<Explore/>} />
         <Route path="/author" element={<Author />} />
         <Route
           path="/item-details/:authorId"
