@@ -1,20 +1,21 @@
-import React from 'react'
+import React from "react";
 
 const TopSellersSkeleton = () => {
   return (
     <>
-        <li>
-                      <div className="author_list_pp">
-                          <i className="fa fa-check"></i>
-                      </div>
-                      <div className="author_list_info">
-                          Popalopsacopolis
-                        <span>0 ETH</span>
-                      </div>
-                    </li>
-
+      <li>
+        <div className="author_list_pp">
+          <div className="pp-coll-skeleton2"></div>
+          <i className="fa fa-check"></i>
+        </div>
+        <div className="author_list_info-skeleton">
+          <div className="skeleton-text" >Popalopsa</div>
+          <br />
+          <div className="skeleton-text">0 ETH</div>
+        </div>
+      </li>
     </>
-    )
-}
+  );
+};
 
-export default TopSellersSkeleton
+export default TopSellersSkeleton;

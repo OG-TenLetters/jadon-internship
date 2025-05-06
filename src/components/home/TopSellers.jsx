@@ -4,7 +4,6 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import TopSellersSkeleton from "./ui/TopSellersSkeleton";
 
 const TopSellers = ({ topSellers, isLoading }) => {
-  console.log(topSellers);
   return (
     <section id="section-popular" className="pb-5">
       <div className="container">
@@ -18,13 +17,14 @@ const TopSellers = ({ topSellers, isLoading }) => {
           <div className="col-md-12">
             <ol className="author_list">
               {isLoading
-                ? (
-                  Array.from({length: 12}).map((_, index) => (
+                ? 
+                  (Array.from({length: 12}).map((_, index) => (
                     <TopSellersSkeleton key={index} />
-                  )) 
-                )
-                : topSellers.length > 0
-                ? topSellers.map((bubble) => (
+                  ))) 
+                
+                : 
+                (topSellers.length > 0
+                ? topSellers.map((bubble) => ( 
                     <li key={bubble.id}>
                       <div className="author_list_pp">
                         <Link to={`/author/${bubble.authorId}`}>
@@ -44,8 +44,8 @@ const TopSellers = ({ topSellers, isLoading }) => {
                       </div>
                     </li>
                   ))
-                : null}
-                <TopSellersSkeleton />
+                : null)
+                }
             </ol>
           </div>
         </div>
