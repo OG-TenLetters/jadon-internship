@@ -1,6 +1,4 @@
 import React from 'react'
-import AuthorImage from "../../../images/author_thumbnail.jpg";
-import nftImage from "../../../images/nftImage.jpg";
 const NewItemsSkeleton = () => {
   return (
     <>
