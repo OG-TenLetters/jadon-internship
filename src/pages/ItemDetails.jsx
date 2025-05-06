@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../images/author_thumbnail.jpg";
 import nftImage from "../images/nftImage.jpg";
 
-const ItemDetails = ({ newItemsCards, isLoading }) => {
+const ItemDetails = ({ newItemsCards }) => {
   const [itemDetails, setItemDetails] = useState(null)
   const { authorId }= useParams()
 
@@ -15,7 +15,6 @@ const ItemDetails = ({ newItemsCards, isLoading }) => {
     const selectedItem = newItemsCards.find((card) => card.authorId === +authorId)
       setItemDetails(selectedItem);
   }, [authorId, newItemsCards])
-console.log(itemDetails)
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">

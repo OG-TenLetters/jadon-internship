@@ -5,7 +5,7 @@ const TopSellersSkeleton = () => {
     <>
       <li>
         <div className="author_list_pp">
-          <div className="pp-coll-skeleton2"></div>
+          <div className="pp-coll-skeleton"></div>
           <i className="fa fa-check"></i>
         </div>
         <div className="author_list_info-skeleton">
