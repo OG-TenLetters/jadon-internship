@@ -6,11 +6,15 @@ import LandingIntro from "../components/home/LandingIntro";
 import NewItems from "../components/home/NewItems";
 import TopSellers from "../components/home/TopSellers";
 
-
-const Home = ({ hotCollectionsCards, newItemsCards, topSellers, isLoading }) => {
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, []);
+const Home = ({
+  hotCollectionsCards,
+  newItemsCards,
+  topSellers,
+  isLoading,
+}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div id="wrapper">
