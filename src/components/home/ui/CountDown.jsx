@@ -22,7 +22,7 @@ const CountDown = ({ expiryDate }) => {
     if (difference <= 0) {
       return "*Expired*";
     }
-    const daysLeft = Math.floor(difference % day);
+    const daysLeft = Math.floor(difference / day);
     const hoursLeft = Math.floor((difference % day) / hour);
     const minutesLeft = Math.floor(((difference % day) % hour) / minute);
     const secondsLeft = Math.floor(
