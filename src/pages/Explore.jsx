@@ -1,12 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
+import axios from "axios";
 
-const Explore = () => {
+const Explore = ({ isLoading, setIsLoading }) => {
+  const [explore, setExplore] = useState([]);
+  const [value, setValue] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  const fetchExploreData = async () => {
+    setIsLoading(true);
+    const { data } = await axios.get(
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${value}`
+    );
+    const exploreData = data;
+    setExplore(exploreData);
+    setIsLoading(false);
+  };
+  useEffect(() => {
+    fetchExploreData();
+  }, [value]);
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
@@ -32,7 +46,11 @@ const Explore = () => {
         <section aria-label="section">
           <div className="container">
             <div className="row">
-              <ExploreItems />
+              <ExploreItems
+                isLoading={isLoading}
+                explore={explore}
+                setValue={setValue}
+              />
             </div>
           </div>
         </section>

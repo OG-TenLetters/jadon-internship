@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes,} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import Author from "./pages/Author";
@@ -13,7 +13,6 @@ function App() {
   const [hotCollectionsCards, setHotCollectionsCards] = useState([]);
   const [newItemsCards, setNewItemsCards] = useState([]);
   const [topSellers, setTopSellers] = useState([]);
-  
 
   const fetchHotCollectionsData = async () => {
     setIsLoading(true);
@@ -34,7 +33,7 @@ function App() {
     setNewItemsCards(NewItemsData);
     setIsLoading(false);
   };
-  
+
   const fetchTopSellers = async () => {
     setIsLoading(true);
     const { data } = await axios.get(
@@ -45,7 +44,6 @@ function App() {
     setIsLoading(false);
   };
 
-
   useEffect(() => {
     fetchNewItemsData();
   }, []);
@@ -55,7 +53,7 @@ function App() {
   useEffect(() => {
     fetchTopSellers();
   }, []);
-    
+
   return (
     <Router>
       <Nav />
@@ -71,7 +69,12 @@ function App() {
             />
           }
         />
-        <Route path="/explore" element={<Explore/>} />
+        <Route
+          path="/explore"
+          element={
+            <Explore isLoading={isLoading} setIsLoading={setIsLoading} />
+          }
+        />
         <Route path="/author" element={<Author />} />
         <Route
           path="/item-details/:authorId"
