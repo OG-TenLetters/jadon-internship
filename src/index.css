@@ -60,6 +60,51 @@ button {
   right: -8px;
 }
 
+
+
+.profile-details-skeleton {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+
+.profile_banner-skeleton {
+  aspect-ratio: 1795/360;
+  min-height: 360px;
+}
+
+.btn-main-skeleton {
+  color: transparent;
+  background-color: #ddd;
+  background-image: linear-gradient(
+    90deg,
+    #8364E2 0px,
+    #9375ee 50%,
+    #8364E2 100%
+  );
+  padding: 8px 38px;
+  border-radius: 8px;
+  background-size: 200% 100%;
+  animation: pulse 1.5s infinite linear;
+}
+
+
+.author-profile__img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ddd;
+  background-image: linear-gradient(
+    90deg,
+    #cfcfcf 0px,
+    #c0c0c0 50%,
+    #cfcfcf 100%
+  );
+  background-size: 200% 100%;
+  animation: pulse 1.5s infinite linear;
+}
+
+.profile_banner-skeleton,
 .img-fluid-skeleton-square,
 .img-fluid-skeleton {
   width: 100%;

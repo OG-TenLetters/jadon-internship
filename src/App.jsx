@@ -75,7 +75,7 @@ function App() {
             <Explore isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         />
-        <Route path="/author" element={<Author />} />
+        <Route path="/author/:authorId" element={<Author isLoading={isLoading} setIsLoading={setIsLoading} />} />
         <Route
           path="/item-details/:authorId"
           element={
