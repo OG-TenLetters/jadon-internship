@@ -21,7 +21,7 @@ const AuthorItems = ({ nftCollection, isLoading, profileImg }) => {
                 >
                   <div className="nft__item">
                     <div className="author_list_pp">
-                      <Link to="">
+                      <Link to={`/author/${card.authorId}`}>
                         <img className="lazy" src={profileImg} alt="" />
                         <i className="fa fa-check"></i>
                       </Link>
