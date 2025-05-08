@@ -32,8 +32,8 @@ const ExploreItems = ({ isLoading, explore, setValue, }) => {
             ))
           : explore.length > 0
           ? explore
-              .map((card) => <ItemCard
- 
+              .map((card, index) => <ItemCard
+              index={index}
               key={card.id} card={card} />)
               .slice(0, loadMore)
           : null}

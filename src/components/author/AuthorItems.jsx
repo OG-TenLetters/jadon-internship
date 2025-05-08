@@ -11,12 +11,12 @@ const AuthorItems = ({ authorId, nftCollection, isLoading, profileImg }) => {
       <div className="tab-1">
         <div className="row">
           {nftCollection && nftCollection.length > 0
-            ? nftCollection.map((card) => (
+            ? nftCollection.map((card, index) => (
                 <div
                   className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                   data-aos="fade-in"
                   data-aos-duration="150"
-                  data-aos-delay={card.id * 50}
+                  data-aos-delay={index * 50}
                   key={card.id}
                 >
                   <div className="nft__item">
