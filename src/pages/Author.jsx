@@ -26,6 +26,9 @@ const Author = ({ isLoading, setIsLoading }) => {
     setAuthorData(data);
     setIsLoading(false);
   };
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   useEffect(() => {
     fetchAuthor();
