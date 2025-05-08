@@ -3,6 +3,7 @@ import React from "react";
 
 const ItemDetailsSkeleton = () => {
   Aos.init()
+  // I don't see anything wrong with this
   return (
     <>
       <div
