@@ -4,6 +4,7 @@ import React from "react";
 const ItemDetailsSkeleton = () => {
   Aos.init()
   // I don't see anything wrong with this
+  // FROM MAIN!!! DO NOT REMOVE
   return (
     <>
       <div
