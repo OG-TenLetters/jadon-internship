@@ -38,7 +38,7 @@ const ItemCard = ({ card }) => {
               </div>
             </div>
           </div>
-          <Link to={`/item-details/${card.authorId}`}>
+          <Link to={`/item-details/${card.nftId}`}>
             <img
               src={card.nftImage}
               className="lazy nft__item_preview"
@@ -47,7 +47,7 @@ const ItemCard = ({ card }) => {
           </Link>
         </div>
         <div className="nft__item_info">
-          <Link to={`/item-details/${card.authorId}`}>
+          <Link to={`/item-details/${card.nftId}`}>
             <h4>{card.title}</h4>
           </Link>
           <div className="nft__item_price">{card.price} ETH</div>

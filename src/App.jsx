@@ -75,11 +75,14 @@ function App() {
             <Explore isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         />
-        <Route path="/author/:authorId" element={<Author isLoading={isLoading} setIsLoading={setIsLoading} />} />
         <Route
-          path="/item-details/:authorId"
+          path="/author/:id"
+          element={<Author isLoading={isLoading} setIsLoading={setIsLoading} />}
+        />
+        <Route
+          path="/item-details/:id"
           element={
-            <ItemDetails newItemsCards={newItemsCards} isLoading={isLoading} />
+            <ItemDetails isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         />
       </Routes>

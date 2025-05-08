@@ -7,7 +7,7 @@ import AuthorSkeleton from "../components/author/ui/AuthorSkeleton";
 
 const Author = ({ isLoading, setIsLoading }) => {
   const [authorData, setAuthorData] = useState([]);
-  const { authorId } = useParams();
+  const { id } = useParams();
   const [follow, setFollow] = useState(false);
 
   const toggleFollow = () => {
@@ -19,7 +19,7 @@ const Author = ({ isLoading, setIsLoading }) => {
   const fetchAuthor = async () => {
     setIsLoading(true);
     const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
     );
     setAuthorData(data);
     setIsLoading(false);
@@ -27,9 +27,7 @@ const Author = ({ isLoading, setIsLoading }) => {
 
   useEffect(() => {
     fetchAuthor();
-  }, [authorId]);
-
-  console.log(authorData);
+  }, [id]);
 
   return (
     <div id="wrapper">

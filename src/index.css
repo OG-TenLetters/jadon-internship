@@ -24,9 +24,9 @@ button {
 .keen-slider__slide > .d-item.col-md-6,
 .keen-slider__slide > .d-item.col-sm-6,
 .keen-slider__slide > .d-item.col-xs-12 {
-  max-width: none !important;
-  min-width: auto !important;
-  width: auto !important;
+  max-width: none ;
+  min-width: auto ;
+  width: auto ;
 }
 .keen__nav--right,
 .keen__nav--left {
@@ -60,13 +60,10 @@ button {
   right: -8px;
 }
 
-
-
 .profile-details-skeleton {
   margin-top: 20px;
   font-size: 24px;
 }
-
 
 .profile_banner-skeleton {
   aspect-ratio: 1795/360;
@@ -78,16 +75,15 @@ button {
   background-color: #ddd;
   background-image: linear-gradient(
     90deg,
-    #8364E2 0px,
+    #8364e2 0px,
     #9375ee 50%,
-    #8364E2 100%
+    #8364e2 100%
   );
   padding: 8px 38px;
   border-radius: 8px;
   background-size: 200% 100%;
   animation: pulse 1.5s infinite linear;
 }
-
 
 .author-profile__img {
   width: 150px;
@@ -132,10 +128,10 @@ button {
 }
 
 .pp-coll-skeleton2 {
-    border: none;
+  border: none;
 }
 .pp-coll-skeleton {
-    border: solid 5px #ffffff;
+  border: solid 5px #ffffff;
 }
 .pp-coll-skeleton2,
 .pp-coll-skeleton {
@@ -160,24 +156,65 @@ button {
   flex-direction: column;
 }
 
+.skeleton-text2,
 .skeleton-text {
-  background-color: #ddd;
   display: inline-block;
   flex-direction: column;
   width: auto;
+  background-size: 200% 100%;
+  color: transparent;
+  animation: pulse 1.5s infinite linear;
+  border-radius: 12px;
+}
+
+.skeleton-text {
   background-image: linear-gradient(
     90deg,
     #cfcfcf 0px,
     #c0c0c0 50%,
     #cfcfcf 100%
   );
+}
+.skeleton-text2 {
+  background-image: linear-gradient(
+    90deg,
+    #00000077 0px,
+    #22222277 50%,
+    #00000077 100%
+  );
+  border-radius: 4px;
+}
+
+.eth__img--skeleton {
+  background-image: linear-gradient(
+    90deg,
+    #627eea 0px,
+    #9aadf8 50%,
+    #627eea 100%
+  );
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  margin-right: 5px;
+  border-radius: 50%;
   background-size: 200% 100%;
   color: transparent;
   animation: pulse 1.5s infinite linear;
-  border-radius: 12px;
 }
+
 .check-skeleton {
   background-color: blue;
+}
+
+.nft-item-price-skeleton {
+  color: transparent;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.nft-item-price-skeleton .eth__img--skeleton {
+  margin-top: 0px;
 }
 
 .nft_coll_info {
@@ -185,6 +222,21 @@ button {
   flex-direction: column;
   align-items: center;
 }
+
+.item-info_counts-skeleton > div {
+  background-image: linear-gradient(
+    90deg,
+    #b5a7dd1a 0px,
+    #6951af1a 50%,
+    #b2a5d81a 100%
+  );
+  color: transparent;
+  width: auto;
+  background-size: 200% 100%;
+  color: transparent;
+  animation: pulse 1.5s infinite linear;
+}
+
 @keyframes pulse {
   0% {
     background-position: 200% 0;
