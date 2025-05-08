@@ -67,7 +67,7 @@ const ItemDetails = ({ isLoading, setIsLoading }) => {
                           <h6>Owner</h6>
                           <div className="item_author">
                             <div className="author_list_pp">
-                              <Link to="/author">
+                              <Link to={`/author/${itemDetails.ownerId}`}>
                                 <img
                                   className="lazy"
                                   src={itemDetails.ownerImage}
@@ -77,7 +77,7 @@ const ItemDetails = ({ isLoading, setIsLoading }) => {
                               </Link>
                             </div>
                             <div className="author_list_info">
-                              <Link to="/author">{itemDetails.ownerName}</Link>
+                              <Link to={`/author/${itemDetails.ownerId}`}>{itemDetails.ownerName}</Link>
                             </div>
                           </div>
                         </div>
@@ -88,7 +88,7 @@ const ItemDetails = ({ isLoading, setIsLoading }) => {
                           <h6>Creator</h6>
                           <div className="item_author">
                             <div className="author_list_pp">
-                              <Link to="/author">
+                              <Link to={`/author/${itemDetails.creatorId}`}>
                                 <img
                                   className="lazy"
                                   src={itemDetails.creatorImage}
@@ -98,7 +98,7 @@ const ItemDetails = ({ isLoading, setIsLoading }) => {
                               </Link>
                             </div>
                             <div className="author_list_info">
-                              <Link to="/author">
+                              <Link to={`/author/${itemDetails.creatorId}`}>
                                 {itemDetails.creatorName}
                               </Link>
                             </div>
