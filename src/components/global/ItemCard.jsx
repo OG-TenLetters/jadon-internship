@@ -11,7 +11,7 @@ const ItemCard = ({ card }) => {
     >
       <div className="nft__item">
         <div className="author_list_pp">
-          <Link to="/author" data-bs-toggle="tooltip" data-bs-placement="top">
+          <Link to={`/author/${card.authorId}`} data-bs-toggle="tooltip" data-bs-placement="top">
             <img className="lazy" src={card.authorImage} alt="" />
             <i className="fa fa-check"></i>
           </Link>
@@ -38,7 +38,7 @@ const ItemCard = ({ card }) => {
               </div>
             </div>
           </div>
-          <Link to="/item-details">
+          <Link to={`/item-details/${card.authorId}`}>
             <img
               src={card.nftImage}
               className="lazy nft__item_preview"
@@ -47,7 +47,7 @@ const ItemCard = ({ card }) => {
           </Link>
         </div>
         <div className="nft__item_info">
-          <Link to="/item-details">
+          <Link to={`/item-details/${card.authorId}`}>
             <h4>{card.title}</h4>
           </Link>
           <div className="nft__item_price">{card.price} ETH</div>
