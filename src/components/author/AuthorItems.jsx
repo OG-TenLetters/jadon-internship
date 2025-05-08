@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
+import Aos from "aos";
 
 const AuthorItems = ({ nftCollection, isLoading, profileImg }) => {
+  Aos.init();
   return (
     <div className="de_tab_content">
       <div className="tab-1">
@@ -12,6 +14,9 @@ const AuthorItems = ({ nftCollection, isLoading, profileImg }) => {
             ? nftCollection.map((card) => (
                 <div
                   className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                  data-aos="fade-in"
+                  data-aos-duration="150"
+                  data-aos-delay={card.id * 50}
                   key={card.id}
                 >
                   <div className="nft__item">

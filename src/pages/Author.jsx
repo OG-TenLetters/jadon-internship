@@ -4,8 +4,10 @@ import AuthorItems from "../components/author/AuthorItems";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import AuthorSkeleton from "../components/author/ui/AuthorSkeleton";
+import Aos from "aos";
 
 const Author = ({ isLoading, setIsLoading }) => {
+  Aos.init();
   const [authorData, setAuthorData] = useState([]);
   const { id } = useParams();
   const [follow, setFollow] = useState(false);
@@ -43,6 +45,8 @@ const Author = ({ isLoading, setIsLoading }) => {
               className="text-light"
               data-bgimage="url(images/author_banner.jpg) top"
               style={{ background: `url(${AuthorBanner}) top` }}
+              data-aos="fade-in"
+              data-aos-duration="300"
             ></section>
             <section aria-label="section">
               <div className="container">
@@ -51,10 +55,25 @@ const Author = ({ isLoading, setIsLoading }) => {
                     <div className="d_profile de-flex">
                       <div className="de-flex-col">
                         <div className="profile_avatar">
-                          <img src={authorData.authorImage} alt="" />
+                          <img
+                            data-aos="fade-in"
+                            data-aos-duration="300"
+                            src={authorData.authorImage}
+                            alt=""
+                          />
 
-                          <i className="fa fa-check"></i>
-                          <div className="profile_name">
+                          <i
+                            data-aos="fade-in"
+                            data-aos-duration="300"
+                            data-aos-delay="300"
+                            className="fa fa-check"
+                          ></i>
+                          <div
+                            data-aos="fade-in"
+                            data-aos-duration="300"
+                            data-aos-delay="150"
+                            className="profile_name"
+                          >
                             <h4>
                               {authorData.authorName}
                               <span className="profile_username">
@@ -70,7 +89,11 @@ const Author = ({ isLoading, setIsLoading }) => {
                           </div>
                         </div>
                       </div>
-                      <div className="profile_follow de-flex">
+                      <div
+                        data-aos="fade-left"
+                        data-aos-duration="300"
+                        className="profile_follow de-flex"
+                      >
                         <div className="de-flex-col">
                           {follow ? (
                             <>

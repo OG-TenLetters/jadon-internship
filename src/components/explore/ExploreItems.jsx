@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ItemCard from "../global/ItemCard";
 import ItemCardSkeleton from "../global/ui/ItemCardSkeleton";
+import Aos from "aos";
 
 const ExploreItems = ({ isLoading, explore, setValue, }) => {
+  Aos.init()
   const [loadMore, setLoadMore] = useState(8);
   const handleLoadMore = () => {
     setLoadMore((prevCount) => prevCount + 4);
@@ -21,27 +23,32 @@ const ExploreItems = ({ isLoading, explore, setValue, }) => {
         </select>
       </div>
 
-      {isLoading
-        ? Array.from({ length: 8 }).map((_, index) => (
-            <ItemCardSkeleton key={index} />
-          ))
-        : explore.length > 0
-        ? explore
-            .map((card) => <ItemCard key={card.id} card={card} />)
-            .slice(0, loadMore)
-        : null}
 
-      {explore.length > loadMore && (
-        <div className="col-md-12 text-center">
-          <button
-            onClick={handleLoadMore}
-            id="loadmore"
-            className="btn-main lead"
-          >
-            Load more
-          </button>
-        </div>
-      )}
+        {isLoading
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <ItemCardSkeleton index={index}
+       
+              key={index} />
+            ))
+          : explore.length > 0
+          ? explore
+              .map((card) => <ItemCard
+ 
+              key={card.id} card={card} />)
+              .slice(0, loadMore)
+          : null}
+        {explore.length > loadMore && (
+          <div className="col-md-12 text-center">
+            <button
+              onClick={handleLoadMore}
+              id="loadmore"
+              className="btn-main lead"
+            >
+              Load more
+            </button>
+          </div>
+        )}
+
     </>
   );
 };
