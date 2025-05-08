@@ -3,6 +3,7 @@ import React from "react";
 
 const ItemDetailsSkeleton = () => {
   Aos.init()
+  // FROM MAIN!!! DO NOT REMOVE
   return (
     <>
       <div
