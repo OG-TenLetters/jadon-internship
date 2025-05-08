@@ -4,7 +4,7 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import Aos from "aos";
 
-const AuthorItems = ({ nftCollection, isLoading, profileImg }) => {
+const AuthorItems = ({ authorId, nftCollection, isLoading, profileImg }) => {
   Aos.init();
   return (
     <div className="de_tab_content">
@@ -21,7 +21,7 @@ const AuthorItems = ({ nftCollection, isLoading, profileImg }) => {
                 >
                   <div className="nft__item">
                     <div className="author_list_pp">
-                      <Link to={`/author/${card.authorId}`}>
+                      <Link to={`/author/${authorId}`}>
                         <img className="lazy" src={profileImg} alt="" />
                         <i className="fa fa-check"></i>
                       </Link>
