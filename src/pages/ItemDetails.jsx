@@ -3,8 +3,10 @@ import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ItemDetailsSkeleton from "./ui/ItemDetailsSkeleton";
+import Aos from "aos";
 
 const ItemDetails = ({ isLoading, setIsLoading }) => {
+  Aos.init();
   const [itemDetails, setItemDetails] = useState(null);
   const { id } = useParams();
 
@@ -33,7 +35,7 @@ const ItemDetails = ({ isLoading, setIsLoading }) => {
               <ItemDetailsSkeleton />
             ) : (
               itemDetails && (
-                <div className="row">
+                <div data-aos="fade-in" className="row">
                   <div className="col-md-6 text-center">
                     <img
                       src={itemDetails.nftImage}

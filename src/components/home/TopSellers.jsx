@@ -14,16 +14,17 @@ const TopSellers = ({ topSellers, isLoading }) => {
             </div>
           </div>
           <div className="col-md-12">
-            <ol className="author_list">
+            <ol
+              data-aos="fade-in"
+              data-aos-duration="1200"
+              className="author_list"
+            >
               {isLoading
-                ? 
-                  (Array.from({length: 12}).map((_, index) => (
+                ? Array.from({ length: 12 }).map((_, index) => (
                     <TopSellersSkeleton key={index} />
-                  ))) 
-                
-                : 
-                (topSellers.length > 0
-                ? topSellers.map((bubble) => ( 
+                  ))
+                : topSellers.length > 0
+                ? topSellers.map((bubble) => (
                     <li key={bubble.id}>
                       <div className="author_list_pp">
                         <Link to={`/author/${bubble.authorId}`}>
@@ -43,8 +44,7 @@ const TopSellers = ({ topSellers, isLoading }) => {
                       </div>
                     </li>
                   ))
-                : null)
-                }
+                : null}
             </ol>
           </div>
         </div>

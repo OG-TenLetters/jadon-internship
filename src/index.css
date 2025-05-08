@@ -11,6 +11,7 @@
 @import "./css/colors/scheme-01.css";
 @import "./css/styles/coloring.css";
 @import "keen-slider/keen-slider.min.css";
+@import "aos/dist/aos.css";
 
 button {
   border: 1px solid rgb(207, 207, 207);
@@ -24,9 +25,9 @@ button {
 .keen-slider__slide > .d-item.col-md-6,
 .keen-slider__slide > .d-item.col-sm-6,
 .keen-slider__slide > .d-item.col-xs-12 {
-  max-width: none ;
-  min-width: auto ;
-  width: auto ;
+  max-width: none;
+  min-width: auto;
+  width: auto;
 }
 .keen__nav--right,
 .keen__nav--left {
@@ -235,6 +236,12 @@ button {
   background-size: 200% 100%;
   color: transparent;
   animation: pulse 1.5s infinite linear;
+}
+
+.card-animation {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @keyframes pulse {

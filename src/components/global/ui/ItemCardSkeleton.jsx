@@ -1,8 +1,15 @@
+import Aos from 'aos'
 import React from 'react'
-const ItemCardSkeleton = () => {
+const ItemCardSkeleton = ({index}) => {
+    Aos.init()
+
   return (
     <>
     <div
+            
+            // data-aos="fade-up"
+            // data-aos-duration="300"
+            // data-aos-delay={index * 50}
             className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
             style={{ display: "block", backgroundSize: "cover" }}
           >

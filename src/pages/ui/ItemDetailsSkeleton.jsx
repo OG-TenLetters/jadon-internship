@@ -1,9 +1,14 @@
+import Aos from "aos";
 import React from "react";
 
 const ItemDetailsSkeleton = () => {
+  Aos.init()
   return (
     <>
-      <div className="row">
+      <div
+      data-aos="fade-in"
+      data-aos-duration="50"
+      className="row">
         <div className="col-md-6 text-center">
           <div className="img-fluid-skeleton-square"></div>
         </div>

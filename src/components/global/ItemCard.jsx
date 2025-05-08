@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CountDown from "../home/ui/CountDown";
+import Aos from "aos";
 
 const ItemCard = ({ card }) => {
+  Aos.init();
   return (
     <div
       key={card.id}
+      data-aos="fade-in"
+      data-aos-duration="300"
+      data-aos-delay={card.id * 50}
       className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
       style={{ display: "block", backgroundSize: "cover" }}
     >

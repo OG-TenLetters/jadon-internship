@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import HotCollectionsSkeleton from "./ui/HotCollectionsSkeleton";
+import Aos from "aos";
 
 const HotCollections = ({ hotCollectionsCards, isLoading }) => {
+  Aos.init({});
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
 
@@ -65,7 +67,11 @@ const HotCollections = ({ hotCollectionsCards, isLoading }) => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="navigation__wrapper">
+          <div
+            data-aos="fade-in"
+            data-aos-duration="1200"
+            className="navigation__wrapper"
+          >
             <button onClick={handlePrev} className="keen__nav--left">
               {"<"}
             </button>
